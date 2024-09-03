@@ -11,3 +11,5 @@ pluginManagement {
     }
 }
 rootProject.name="quarkus-ddd"
+include("infrastructure")
+include("domain")
