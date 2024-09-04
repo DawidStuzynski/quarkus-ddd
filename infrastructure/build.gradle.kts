@@ -1,9 +1,7 @@
 plugins {
-    kotlin("jvm") version "2.0.10"
-    kotlin("plugin.allopen") version "2.0.10"
+//    kotlin("jvm") version "2.0.10"
     id("io.quarkus")
-    id("java")
-    id ("org.kordamp.gradle.jandex") version "2.0.0"
+//    id("java")
 }
 
 repositories {

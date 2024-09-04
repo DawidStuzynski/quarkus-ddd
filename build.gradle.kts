@@ -1,7 +1,9 @@
 plugins {
     kotlin("jvm") version "2.0.10"
     kotlin("plugin.allopen") version "2.0.10"
-//    id("io.quarkus")
+    id("java")
+    id("org.kordamp.gradle.jandex") version "2.0.0"
+//    id("io.quarkus") apply false
 }
 
 repositories {
@@ -14,25 +16,16 @@ val quarkusPlatformArtifactId: String by project
 val quarkusPlatformVersion: String by project
 
 subprojects {
+
     apply(plugin = "org.jetbrains.kotlin.jvm")
     apply(plugin = "org.jetbrains.kotlin.plugin.allopen")
+    apply(plugin = "org.kordamp.gradle.jandex")
 //    apply(plugin = "io.quarkus")
 
     repositories {
         mavenCentral()
         mavenLocal()
     }
-
-//    dependencies {
-//        implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
-//        implementation("io.quarkus:quarkus-rest")
-//        implementation("io.quarkus:quarkus-kotlin")
-//        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-//        implementation("io.quarkus:quarkus-arc")
-//
-//        testImplementation("io.quarkus:quarkus-junit5")
-//        testImplementation("io.rest-assured:rest-assured")
-//    }
 
     java {
         sourceCompatibility = JavaVersion.VERSION_21
