@@ -26,8 +26,10 @@ dependencies {
     implementation(project(":domain"))
     implementation("io.quarkus:quarkus-rest")
     implementation("io.quarkus:quarkus-kotlin")
+    implementation("io.quarkus:quarkus-rest-jackson")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("io.quarkus:quarkus-arc")
+    implementation("io.github.oshai:kotlin-logging-jvm:7.0.0")
 
     testImplementation("io.quarkus:quarkus-junit5")
     testImplementation("io.rest-assured:rest-assured")

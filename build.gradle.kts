@@ -1,3 +1,5 @@
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+
 plugins {
     kotlin("jvm") version "2.0.10"
     kotlin("plugin.allopen") version "2.0.10"
@@ -27,6 +29,11 @@ subprojects {
         mavenLocal()
     }
 
+    dependencies {
+        testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
+        testImplementation("org.assertj:assertj-core:3.25.3")
+    }
+
     java {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
@@ -34,6 +41,13 @@ subprojects {
 
     tasks.withType<Test> {
         systemProperty("java.util.logging.manager", "org.jboss.logmanager.LogManager")
+    }
+
+    tasks.withType<Test> {
+        useJUnitPlatform()
+        testLogging {
+            exceptionFormat = FULL
+        }
     }
 
     allOpen {
