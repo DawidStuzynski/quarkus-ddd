@@ -4,6 +4,7 @@ import org.acme.product.model.Product
 import java.math.BigDecimal
 import java.util.*
 
+//Dto
 class ProductDto(
     val id: UUID,
     val name: String,

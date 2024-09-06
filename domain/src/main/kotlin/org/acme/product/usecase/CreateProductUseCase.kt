@@ -8,6 +8,7 @@ import org.acme.product.port.dto.ProductDto
 import org.acme.product.usecase.dto.CreateProductInput
 import org.acme.product.usecase.operations.ProductInfoProviderOperations
 import org.acme.product.usecase.operations.ProductStoreOperations
+import java.math.BigDecimal
 import java.util.UUID
 
 internal class CreateProductUseCase(
@@ -26,10 +27,22 @@ internal class CreateProductUseCase(
                 name = input.name,
                 description = input.description,
                 price = input.price,
-            ).store()
+            )
 
+            product.updatePrice(BigDecimal("1"))
             val info = fetchInfoForProduct(input.name)
+
+            product.validate()
+
+            product.store()
+
             return ProductDto.of(product)
         }
     }
 }
+
+private fun Product.validate() {
+    require(this.name != "gowno") { "Product name must not be gowno" }
+}
+
+private fun Product.updatePrice(price: BigDecimal) = copy(price = price)

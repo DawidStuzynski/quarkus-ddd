@@ -1,6 +1,6 @@
 package org.acme.product.port
 
-// port
+//@Port
 interface ProductInfoProvider {
     fun findProductInfo(productName: String): List<String>
 }

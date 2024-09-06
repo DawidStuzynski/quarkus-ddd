@@ -4,7 +4,7 @@ import org.acme.product.exception.ProductNotFoundException
 import org.acme.product.port.dto.ProductDto
 import java.util.*
 
-// port
+//@Port
 interface ProductStorage {
     fun store(dto: ProductDto): ProductDto
 

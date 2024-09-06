@@ -9,11 +9,14 @@ import jakarta.ws.rs.core.MediaType.APPLICATION_JSON
 import org.acme.product.ProductFacade
 import org.acme.product.api.dto.CreateProductRequest
 import org.acme.product.api.dto.CreateProductResponse
+import org.acme.product.port.dto.ProductDto
+import org.acme.product.service.ProductService
 import org.acme.product.usecase.dto.CreateProductInput
 
 @Path("/api/v1")
 internal class ProductEndpoint(
-    private val facade: ProductFacade
+    private val facade: ProductFacade,
+    private val service: ProductService
 ) {
     @POST
     @Path("/product")
@@ -33,7 +36,9 @@ internal class ProductEndpoint(
     @GET
     @Path("/products")
     fun readProducts(
-    ): String {
-        return facade.hello()
-    }
+    ): List<ProductDto> = service.readAll()
+
+    @GET
+    @Path("/products/wow")
+    fun readProductsWihFireworks(): String = service.readProductsWihFireworks()
 }
