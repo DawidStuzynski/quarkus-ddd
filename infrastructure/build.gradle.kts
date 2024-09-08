@@ -16,7 +16,6 @@ tasks.named("quarkusGenerateCodeTests") {
     inputs.files(tasks.getByPath(":infrastructure:jandex").outputs.files)
 }
 
-
 val quarkusPlatformGroupId: String by project
 val quarkusPlatformArtifactId: String by project
 val quarkusPlatformVersion: String by project
@@ -34,27 +33,6 @@ dependencies {
     testImplementation("io.quarkus:quarkus-junit5")
     testImplementation("io.rest-assured:rest-assured")
 }
-
-//sourceSets {
-//    main {
-//        java {
-//            setSrcDirs(listOf("infrastructure/src/main/kotlin"))
-//        }
-//        resources {
-//            setSrcDirs(listOf("infrastructure/src/main/resources"))
-//        }
-//    }
-//    test {
-//        java {
-//            setSrcDirs(listOf("infrastructure/src/test/kotlin"))
-//        }
-//        resources {
-//            setSrcDirs(listOf("infrastructure/src/test/resources"))
-//        }
-//    }
-//}
-
-
 
 java {
     sourceCompatibility = JavaVersion.VERSION_21
