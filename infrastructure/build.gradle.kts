@@ -1,7 +1,7 @@
 plugins {
 //    kotlin("jvm") version "2.0.10"
     id("io.quarkus")
-//    id("java")
+//    id("java") //todo check if this is necessary
 }
 
 repositories {
